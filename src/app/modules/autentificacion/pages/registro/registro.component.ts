@@ -31,9 +31,20 @@ registrar(){
   password: this.usuarios.password,}
 
   this.coleccionUsuarios.push(credenciales);
+  alert("¡te as registrado con exito!")
 
   console.log(credenciales);
   console.log (this.coleccionUsuarios);
  
+}
+limpiarInputs(){
+  const inputs = {
+    uid: this.usuarios.uid ='',
+    nombre: this.usuarios.nombre ='',
+    apellido: this.usuarios.apellido ='',
+    email: this.usuarios.email ='',
+    rol: this.usuarios.rol ='',
+    password: this.usuarios.password =''
+  }
 }
 }

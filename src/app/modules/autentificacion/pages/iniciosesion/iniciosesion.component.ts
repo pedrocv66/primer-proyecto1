@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-iniciosesion',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./iniciosesion.component.css']
 })
 export class IniciosesionComponent {
+hide=true;
 
+constructor(){
+  this.coleccionUsuariosLocales = [
+  {}
+  ]
+}
+
+usuarios: Usuario = {
+  uid:'',
+  nombre:'',
+  apellido:'',
+  email:'',
+  password:'',
+}
 }
