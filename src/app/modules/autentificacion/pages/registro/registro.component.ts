@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
+import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -19,6 +22,15 @@ usuarios: Usuario = {
 }
 // creamos una collecion de usuarios, tipo 'usuario' para arrays
 coleccionUsuarios: Usuario[] = [];
+//########################################################################################################
+constructor(
+  public sericioAuth:AuthService,
+  public servicioRutas:Router,
+){}
+
+
+
+//########################################################################################################
 //funcion para el registro de nuevos usuarios
 registrar(){
   //constante credencisles va a resguardar la informacion que ingrese el usuario
@@ -35,7 +47,23 @@ registrar(){
 
   console.log(credenciales);
   console.log (this.coleccionUsuarios);
+
+  const credenciales = {
+    email: this.usuarios.email,
+    password: this.usuarios.password,
+  }
+  const res = await this,servicioAuth.registrar(credenciales.email,credenciales.password)
  
+  .then(res =>  {
+   alert("se registro con exito")
+
+  
+  this.servicioRutas.navigate(['/inicio'])
+  })
+  .cath(error =>{
+  alert("error en el registro: \n"+error)
+
+  })
 }
 limpiarInputs(){
   const inputs = {
