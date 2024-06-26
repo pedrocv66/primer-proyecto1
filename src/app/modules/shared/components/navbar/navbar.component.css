@@ -1,3 +1,23 @@
 .example-spacer {
     flex: 1 1 auto;
 }  
+@media (min-width: 300px) and (max-with: 800px){
+    mat-toolbar{
+        background-color: pink;
+
+    }
+    #menuInicio{
+        display: none;
+    }
+    #menuProducto{
+        display: none;
+    }
+}
+@media (min-width: 700px){
+    mat-toolbar{
+        background-color: blue;
+    }
+    #menuSecciones{
+        display: none;
+    }
+}
